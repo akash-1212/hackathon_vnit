@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'site_media/ui.css' %}"/>
+    <script type="text/javascript" src="{% static 'site_media/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site_media/jquery-ui-min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".submitButton").button();
+            $(".text").button();
+        });
+    </script>
+</head>
+<body>
+<div class="ui-widget"><h1>Login</h1></div>
+
+{% if form.errors %}
+       <strong><p>Invalid Credentials</p></strong>
+        {% endif %}
+
+<form action = "/login/" method="Post">
+    {% csrf_token %}
+    <label for="teacherID"><div class="ui-widget"><b>ID : </b></div></label>&nbsp;<input type="text" id="teacherId" name="username" value=" " maxlength="6" class="text"/>
+    <br/>
+    <br/>
+    <label for="teacherPassword"><div class="ui-widget"><b>Password: </b></div></label>&nbsp;<input type="password" id="teacherPassword" value="" name="password" class="text"/>
+    <br/>
+    <br/>
+    <button value="Login" class="submitButton">Login</button>
+</form>
+</body>
+</html>
