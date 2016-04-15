@@ -46,6 +46,8 @@ class Assignment(models.Model):
     deadline = models.DateField(default='1990-01-01')
     file = models.FileField(default='abc')
 
+    modified=models.BooleanField(default=False)
+    modified_date=models.DateField(default='1990-01-01')
 
 #
 # class assign_section(models.Model):
@@ -57,4 +59,5 @@ class stud_subm(models.Model):
     stud = models.ForeignKey(Student)
     assignment = models.ForeignKey(Assignment)
     subm_time = models.DateField()
+
     file = models.FileField(default='abc')

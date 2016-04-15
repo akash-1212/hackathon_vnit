@@ -51,6 +51,7 @@
            this.course_list = course_list;
            this.assgn_list=assignment_object;
            this.assignment={};
+           this.assign_id='';
            this.show_assignments = function(){
         	   this.assgn_list=[];
         	   var len=assignment_object.length;
@@ -69,15 +70,24 @@
         					   );		   
         		   }
         	   }
+        	   //alert(assgn_list.length);
            };
            this.setAssign = function(assign){
         	   //alert('here');
         	   this.assignment=assign;
         	   //$( "#opener" ).click(function() {
      		      $( "#dialog" ).dialog( "open" );
+     		     $(".editDim").prop('readonly', true);
+     		      //document.getElementsByClassName("abc").readOnly=true;
      		    //});
         	   this.assign_id = assign_id;
            };
+           this.editdetailsDim = function(){
+        	   $(".editDim").prop('readonly', false);
+           }
+           this.newAssign = function(){
+        	   $( "#dialog1" ).dialog( "open" );
+           }
     });
 
 })()
