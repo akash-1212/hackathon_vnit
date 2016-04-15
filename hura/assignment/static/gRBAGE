@@ -1,0 +1,27 @@
+ var prof_course = [{% for key, value in prof_course_pair.items %}
+                       {
+                    	   'course_name' : {{ key }},
+                    	   'prof_name' : {{ value }}
+                       },
+                       {% endfor %}
+
+                        ];
+
+    var assignment_object = [
+                         {% for item in live_assign %}
+
+                        {
+                            'name' : {{ item.name }},
+                            'course_name' : {{ item.prof_course.course_name }},
+                            'prof_name' : {{ item.prof_course.name }},
+                            'deadline' : {{ item.deadline }},
+                            'time_uploaded' : {{ item.time_uploaded }},
+                            'assign_id' : {{ item.id }},
+                            {% if item.id in submission_list %}
+                            'issubmitted' :'Resubmit'
+                            {% else %}
+                            'issubmitted' :'Submit'
+                            {% endif %}
+                        },
+                    {% endfor %}
+                        ];

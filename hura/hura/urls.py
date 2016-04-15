@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 
-from assignment.views import Login
+from assignment.views import Login, StudWelcome
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/',Login)
+    url(r'^login/',Login),
+    url(r'^prof_welcome/',StudWelcome),
+    url(r'^stud_welcome/',StudWelcome),
     ]
